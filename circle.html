@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<style>
+
+#circle
+ {
+    position : relative;
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px; 
+    background:#FF0000;
+}
+</style>
+</head>
+<body>
+<script>
+ang=0;
+function move()
+{
+i=document.getElementById("circle");
+i.style.left=200+50*Math.cos(ang*3.14/180)+'px';
+i.style.top=100+50*Math.sin(ang*3.14/180)+'px';
+ang=ang+1;
+setTimeout(move,10);
+}
+</script>
+
+
+<div>
+<div id="circle" style="left: 200px; top: 100px;"></div>
+<div>
+<button onclick="move()">Start</button>
+</div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<style>
+
+#circle
+ {
+    position : relative;
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px; 
+    background:#FF0000;
+}
+</style>
+</head>
+<body>
+<script>
+flag=1;	t=10;
+function inc()
+{
+t-=2;
+}
+
+function dec()
+{
+t=t+2;
+}
+	
+function move()
+	{
+		
+		if(flag==1)	
+			a();
+		else if(flag==2)
+			b();
+		else if(flag==3)
+			c();
+		else
+			d();
+
+	}
+
+
+	function a()
+	{
+		i=document.getElementById("circle");
+		i.style.left = parseInt(i.style.left)+1+'px';
+		if(parseInt(i.style.left)<280)
+			setTimeout(a,t);
+		else
+{			flag=2;
+
+			setTimeout(b,t);
+}	}
+	function b()
+	{
+		
+		i=document.getElementById("circle");
+		i.style.top = parseInt(i.style.top)+1+'px';
+		if(parseInt(i.style.top)<250)
+			setTimeout(b,t);
+		else
+{
+			flag=3;
+			setTimeout(c,t);
+	}
+}
+	function c()
+	{
+		flag=3;
+		i=document.getElementById("circle");
+		i.style.left = parseInt(i.style.left)-1+'px';
+		if(parseInt(i.style.left)>200)
+			setTimeout(c,t);
+		else
+			{flag=4;setTimeout(d,t);}
+	}
+	function d()
+	{
+		flag=4;
+		i=document.getElementById("circle");
+		i.style.top = parseInt(i.style.top)-1+'px';
+		if(parseInt(i.style.top)>200)
+			setTimeout(d,t);
+		else
+			setTimeout(a,t);
+	}
+
+
+</script>
+
+<div>
+<div id="circle" style="left: 200px; top: 200px;">
+</div>
+<div>
+<button onclick="move()">Start</button>
+<button onclick="inc()">Increase speed</button>
+<button onclick="dec()">Decrease speed</button>
+
+</div>
+</div>
+</body>
+</html>
+
